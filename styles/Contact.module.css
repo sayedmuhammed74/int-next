@@ -1,0 +1,21 @@
+.contact {
+  justify-content: space-around;
+}
+.contact img {
+  width: 440px;
+}
+.contact > div {
+  width: 40%;
+}
+.line {
+  background: linear-gradient(
+    90deg,
+    #0a3940 0%,
+    rgba(217, 217, 217, 0) 131.45%
+  );
+  height: 6.5px;
+  width: 120px;
+}
+.text {
+  color: #677674;
+}
