@@ -1,7 +1,7 @@
 .header {
   /* background: url('./../public/imgs/blur1.png'); */
   background: linear-gradient(#229c9e, #1f9696, #3091c1);
-  transform: translateY(-75px);
+  /* transform: translateY(-75px); */
 }
 /* .header > div:nth-of-type(2) > div:first-of-type {
   position: relative;

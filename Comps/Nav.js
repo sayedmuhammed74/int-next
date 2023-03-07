@@ -1,27 +1,32 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { BiMessage } from 'react-icons/bi';
-import styles from './../styles/Nav.module.css';
-const Nav = (props) => {
-  const checkPath = props.path === '/' ? '#fff' : '#248599';
-  const checkHover = props.path === '/';
-  const checkPath2 = props.path === '/' ? 'logo-white' : 'logo-blue';
+import { useRouter } from "next/router";
+import Image from "next/image";
+import Link from "next/link";
+import { BiMessage } from "react-icons/bi";
+
+// Style
+import styles from "./../styles/Nav.module.css";
+
+const Nav = ({ text, isAbsolute = false }) => {
+  const router = useRouter();
+
+  const checkPath = router.pathname === "/" ? "#fff" : "#248599";
+  const checkHover = router.pathname === "/";
+  const checkPath2 = router.pathname === "/" ? "logo.svg" : "logo-blue.svg";
+
   return (
     <>
-      <div
-        className={`${styles.nav} grid md:grid-cols-2 grid-col-1 justify-center p-2 `}
+      <nav
+        className={`${isAbsolute ? "absolute" : ""}
+        text-primary inset-x-0 z-10 flex items-center gap-5 p-8 lg:px-14 lg:py-10 justify-between`}
       >
-        <div className="mx-16 md:inline hidden">
+        <div className="">
           <Link href="/">
-            <Image
-              src={require(`./../public/imgs/${checkPath2}.png`)}
-              className="h-14 w-36"
-              alt=""
-            />
+            <img src={`/imgs/${checkPath2}`} className="h-22" alt="" />
           </Link>
         </div>
+
         <ul
-          className="text-white text-xl flex flex-end mx-14 md:justify-around justify-center md:gap-0 gap-3 items-center font-bold"
+          className="flex flex-end justify-center items-center md:justify-around text-white text-xl gap-1 md:gap-3 font-bold"
           style={{ color: checkPath }}
         >
           <li className="flex flex-col justify-center items-center">
@@ -32,6 +37,7 @@ const Nav = (props) => {
               }`}
             ></div>
           </li>
+
           <li>|</li>
           <li className="flex flex-col justify-center items-center">
             <Link href="/services">Services</Link>
@@ -39,9 +45,10 @@ const Nav = (props) => {
               className={`${styles.hover} ${
                 checkHover ? styles.whiteHover : styles.blueHover
               }`}
-              style={{ backgroundColor: `${props.text}` }}
+              style={{ backgroundColor: `${text}` }}
             ></div>
           </li>
+
           <li>|</li>
           <li className="flex flex-col justify-center items-center">
             <Link href="/projects">Projects</Link>
@@ -49,15 +56,16 @@ const Nav = (props) => {
               className={`${styles.hover} ${
                 checkHover ? styles.whiteHover : styles.blueHover
               }`}
-              style={{ backgroundColor: `${props.text}` }}
+              style={{ backgroundColor: `${text}` }}
             ></div>
           </li>
-          <li className="border-2 px-2 flex items-center gap-2 md:flex hidden">
+
+          <li className="border-2 px-2 py-1 flex items-center gap-1 md:flex justify-center hidden">
             <span>Message</span>
-            <BiMessage className="mt-1" />
+            <BiMessage />
           </li>
         </ul>
-      </div>
+      </nav>
     </>
   );
 };

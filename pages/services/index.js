@@ -1,21 +1,24 @@
-import Card from '@/Comps/Card';
-import Head from 'next/head';
+import Head from "next/head";
+import Card from "@/Comps/Card";
+import Nav from "@/Comps/Nav";
+
 const Services = ({ data }) => {
   return (
     <>
       <Head>
         <title>Services</title>
       </Head>
-      <div className="my-12 p-5">
+      <Nav />
+      <div className="container mx-auto px-20">
         <p
           className="text-center font-bold text-4xl my-3"
-          style={{ color: '#112020' }}
+          style={{ color: "#112020" }}
         >
           Our Service
         </p>
         <p
           className="text-center font-medium text-2xl"
-          style={{ color: '#232324' }}
+          style={{ color: "#232324" }}
         >
           Let us do that for you
         </p>
@@ -26,7 +29,7 @@ const Services = ({ data }) => {
             <Card
               key={item.id}
               btnContent="Get it"
-              path={`/services/${item.id}`}
+              // path={`/services/${item.id}`}
             />
           ))}
         </div>
@@ -37,7 +40,7 @@ const Services = ({ data }) => {
 
 export async function getStaticProps() {
   const res = await fetch(
-    'https://jsonplaceholder.typicode.com/posts?_limit=5'
+    "https://jsonplaceholder.typicode.com/posts?_limit=5"
   );
   const data = await res.json();
 

@@ -1,12 +1,9 @@
-import Nav from './Nav';
-import Footer from './Footer';
-import { useRouter } from 'next/router';
-const Layout = (props) => {
-  const router = useRouter();
+import Footer from "./Footer";
+
+const Layout = ({ children }) => {
   return (
     <>
-      <Nav path={`${router.pathname}`} />
-      {props.children}
+      {children}
       <Footer />
     </>
   );

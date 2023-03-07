@@ -1,13 +1,16 @@
-import { FaFacebookF } from 'react-icons/fa';
-import { AiOutlineInstagram } from 'react-icons/ai';
-import { AiOutlineLinkedin } from 'react-icons/ai';
-import styles from './../styles/Header.module.css';
-import Image from 'next/image';
+import Image from "next/image";
+import { FaFacebookF } from "react-icons/fa";
+import { AiOutlineInstagram } from "react-icons/ai";
+import { AiOutlineLinkedin } from "react-icons/ai";
+
+// Styles
+import styles from "./../styles/Header.module.css";
+
 const Header = () => {
   return (
     <>
       <div
-        className={`${styles.header} flex md:flex-row flex-col-reverse mx-auto md:px-10 px-2 py-8 justify-between items-center my-0 text-white`}
+        className={`${styles.header} h-screen flex md:flex-row flex-col-reverse mx-auto md:px-10 px-2 py-8 justify-between items-center my-0 text-white`}
       >
         {/* first */}
         <div className="md:flex flex-col items-center w-10 justify-center mt-36 font-bold hidden">
@@ -25,7 +28,7 @@ const Header = () => {
         {/* second */}
         <div className="flex md:mt-10 mt-0 items-center md:w-1/2 w-8/12">
           <Image
-            src={require('./../public/imgs/square.png')}
+            src={require("./../public/imgs/square.png")}
             className="md:inline hidden"
             alt=""
           />
@@ -49,7 +52,7 @@ const Header = () => {
         {/* third */}
         <div className="flex justify-center items-center text-3xl md:ml-20 ml-0">
           <Image
-            src={require('./../public/imgs/logo-white.png')}
+            src={require("./../public/imgs/logo-white.png")}
             className="md:h-72 md:w-68 h-60 w-56 mt-16"
             alt=""
           />

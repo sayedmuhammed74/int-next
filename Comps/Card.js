@@ -1,40 +1,46 @@
-import { IoIosArrowDroprightCircle } from 'react-icons/io';
-import styles from './../styles/Services.module.css';
-import Image from 'next/image';
-import Link from 'next/link';
-const Card = ({ btnContent, path }) => {
+import { IoIosArrowDroprightCircle } from "react-icons/io";
+import styles from "./../styles/Services.module.css";
+import Image from "next/image";
+import Link from "next/link";
+
+const Card = ({ btnContent, path = undefined }) => {
   return (
     <>
       <div
-        className={`${styles.service} border-2 border-graytext md:flex grid md:grid-cols-2 grid-cols-1 w-full md:w-7/12 md:gap-7 gap-0 overflow-hidden `}
+        className={`${styles.service} md:flex grid md:grid-cols-2 grid-cols-1 w-full gap-0 overflow-auto`}
+        style={{ boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.25)" }}
       >
-        <Image
-          src={require('./../public/imgs/website-hosting.png')}
-          alt=""
-          className="w-full md:h-full lg:w-96 h-36"
-        />
-        <div className="flex flex-col md:ml-0 ml-2 mr-5">
-          <p
-            className="font-bold md:text-2xl text-lg  md:mb-1 mb-0 md:mt-1 mt-0"
-            style={{ color: '#112020' }}
+        <img src="/imgs/website-hosting.png" alt="" className="aspect-[4/3]" />
+        <div className="flex flex-col p-8 space-y-2">
+          <h2
+            className="font-bold md:text-3xl text-lg"
+            style={{ color: "#112020" }}
           >
-            Web Hosting
+            Website Development
+          </h2>
+          <p className="mb-4 text-graytext">
+            Almost every business nowadays has a website, but just having a
+            website doesn&apos;t guarantee the success of the business; it has
+            to be a creatively-unique designed website customized based on the
+            business. Websites help with your brand recognition, with your
+            marketing campaigns, and help you reach new customers every day;
+            that is why at INT we offer you several web solutions services,
+            starting from creating your website to creatively designing it based
+            on your preferences. INT Creations specializes in delivering the
+            best e-commerce and general websites, including a consultation to
+            the best market approach for your brand. We not only build your
+            platform, but we also help guide you through the process of
+            optimizing your content.
           </p>
-          <p className="mb-4 text-graytext md:inline hidden">
-            To get the most out of the 360 Skills Assessment, your nominees
-            should be people you work with on a frequent basis and whom you
-            expect to work with for at least one year.
-          </p>
-          <p className="md:mb-6 mb-0 text-graytext">
-            We understand however that this may not be feasible for everyone,
-            and if you believe the potential nominees.
-          </p>
-          <Link href={path} className="self-end">
-            <button className="bg-dark text-white flex items-center gap-2 w-24 lg:w-28 py-2 px-3 rounded-3xl font-semibold md:text-base text-normal">
-              {btnContent}
-              <IoIosArrowDroprightCircle />
-            </button>
-          </Link>
+
+          {path && (
+            <Link href={path} className="self-end">
+              <button className="bg-dark text-white flex items-center gap-2 w-24 lg:w-28 py-2 px-3 rounded-3xl font-semibold md:text-base text-normal">
+                {btnContent}
+                <IoIosArrowDroprightCircle />
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </>

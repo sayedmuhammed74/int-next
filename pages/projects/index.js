@@ -1,15 +1,18 @@
-import Card from '@/Comps/Card';
-import Head from 'next/head';
+import Card from "@/Comps/Card";
+import Nav from "@/Comps/Nav";
+import Head from "next/head";
+
 const Projects = ({ data }) => {
   return (
     <>
       <Head>
         <title>Projects</title>
       </Head>
-      <div className="my-12 p-5">
+      <Nav />
+      <div className="container mx-auto px-20">
         <p
           className="text-center font-semibold text-3xl my-5"
-          style={{ color: '#112020' }}
+          style={{ color: "#112020" }}
         >
           Part of Our Projects
         </p>
@@ -31,7 +34,7 @@ const Projects = ({ data }) => {
 
 export async function getStaticProps() {
   const res = await fetch(
-    'https://jsonplaceholder.typicode.com/posts?_limit=5'
+    "https://jsonplaceholder.typicode.com/posts?_limit=5"
   );
   const data = await res.json();
 

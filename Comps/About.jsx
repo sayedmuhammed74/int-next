@@ -1,27 +1,28 @@
-import Image from 'next/image';
-import React from 'react';
-import styles from './../styles/About.module.css';
+import Image from "next/image";
+import styles from "./../styles/About.module.css";
+
 const About = () => {
   return (
     <div
       id="about"
-      className={`lg:py-10 flex md:flex-row flex-col items-center gap-44 w-8/12 mt-32 mx-auto mb-7 ${styles.about}`}
+      className={`h-screen lg:py-10 flex md:flex-row flex-col items-center gap-44 w-8/12 mt-32 mx-auto mb-7 ${styles.about}`}
     >
       <div className="relative md:inline hidden">
         <div className={styles.square}>
           <Image
             className="absolute"
-            src={require('./../public/imgs/mobile.png')}
+            src="/imgs/mobile.png"
+            fill="cover"
             alt=""
           />
           <Image
             className="absolute"
-            src={require('./../public/imgs/hosting.png')}
+            src={require("./../public/imgs/hosting.png")}
             alt=""
           />
           <Image
             className="absolute"
-            src={require('./../public/imgs/lab.png')}
+            src={require("./../public/imgs/lab.png")}
             alt=""
           />
         </div>
@@ -36,16 +37,18 @@ const About = () => {
           </span>
           <div className={`${styles.line} md:h-1.5 h-1 md:w-24 w-20`}></div>
         </div>
+        <p className="mb-1 text-dark font-bold leading-8">Who are we?</p>
+
         <p className="text-graytext mb-5">
-          <p className="mb-1 text-dark font-bold leading-8">Who are we ?</p>
           <br />
           We are a company that started in October 2022, and we are an Egyptian
           company, and we started with determination to succeed.
         </p>
+
+        <p className="mb-1 text-dark font-bold leading-8">
+          Why are we unique ?
+        </p>
         <p className="text-graytext">
-          <p className="mb-1 text-dark font-bold leading-8">
-            Why are we unique ?
-          </p>
           <br />
           We are always working to satisfy the customer and provide all
           solutions to problems that you face in all services and we are always
